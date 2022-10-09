@@ -31,6 +31,16 @@ enum charybdis_keymap_layers {
 #define SYM MO(LAYER_SYM)
 #define DEV MO(LAYER_DEV)
 
+#define ONESHOT_TAP_TOGGLE 2
+#define OS_LSFT OSM(MOD_LSFT)
+#define OS_LCTL OSM(MOD_LCTL)
+#define OS_LALT OSM(MOD_LALT)
+#define OS_LGUI OSM(MOD_LGUI)
+#define OS_RSFT OSM(MOD_RSFT)
+#define OS_RCTL OSM(MOD_RCTL)
+#define OS_RALT OSM(MOD_RALT)
+#define OS_RGUI OSM(MOD_RGUI)
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT_split_3x5_2(
@@ -49,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
            DEV, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLU,    XXXXXXX, KC_HOME,  KC_END,  KC_DEL, XXXXXXX,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-       KC_LSFT, KC_LCTL, KC_LALT, KC_RGUI, KC_VOLD,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_BSPC,
+       OS_LSFT, OS_LCTL, OS_LALT, OS_LGUI, KC_VOLD,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_BSPC,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY,     KC_ENT, KC_PGDN, KC_PGUP, XXXXXXX, XXXXXXX,
   // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
@@ -61,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
         KC_GRV, KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD,    KC_CIRC, KC_RPRN, KC_RCBR, KC_RBRC,     DEV,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-       KC_MINS, KC_ASTR,  KC_EQL, KC_UNDS,  KC_DLR,    KC_HASH, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT,
+       KC_MINS, KC_ASTR,  KC_EQL, KC_UNDS,  KC_DLR,    KC_HASH, OS_RGUI, OS_RALT, OS_RCTL, OS_RSFT,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
        KC_PLUS, KC_PIPE,   KC_AT, KC_SLSH, KC_PERC,    KC_EXLM, KC_BSLS, KC_AMPR, KC_QUES, QK_BOOT,
   // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
