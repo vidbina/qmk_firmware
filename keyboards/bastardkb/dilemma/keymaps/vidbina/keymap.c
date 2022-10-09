@@ -24,10 +24,12 @@ enum charybdis_keymap_layers {
     LAYER_NAV,
     LAYER_SYM,
     LAYER_NUM,
+    LAYER_DEV
 };
 
 #define NAV MO(LAYER_NAV)
 #define SYM MO(LAYER_SYM)
+#define DEV MO(LAYER_DEV)
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -45,11 +47,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_NAV] = LAYOUT_split_3x5_2(
   // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
-        KC_TAB, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLU,    XXXXXXX, KC_HOME,  KC_END,  KC_DEL, XXXXXXX,
+           DEV, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLU,    XXXXXXX, KC_HOME,  KC_END,  KC_DEL, XXXXXXX,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
        KC_LSFT, KC_LCTL, KC_LALT, KC_RGUI, KC_VOLD,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_BSPC,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-       QK_BOOT, EEP_RST, KC_MPRV, KC_MNXT, KC_MPLY,     KC_ENT, KC_PGDN, KC_PGUP, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY,     KC_ENT, KC_PGDN, KC_PGUP, XXXXXXX, XXXXXXX,
   // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
                                   _______, _______,    _______, _______
   //                            ╰──────────────────╯ ╰──────────────────╯
@@ -57,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_SYM] = LAYOUT_split_3x5_2(
   // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
-        KC_ESC, KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD,    KC_CIRC, KC_RPRN, KC_RCBR, KC_RBRC,  KC_GRV,
+        KC_GRV, KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD,    KC_CIRC, KC_RPRN, KC_RCBR, KC_RBRC,     DEV,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
        KC_MINS, KC_ASTR,  KC_EQL, KC_UNDS,  KC_DLR,    KC_HASH, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
@@ -74,6 +76,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,  KC_F11,     KC_F12, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
          KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,
+  // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
+                                  _______, _______,    _______, _______
+  //                            ╰──────────────────╯ ╰──────────────────╯
+  ),
+
+  [LAYER_DEV] = LAYOUT_split_3x5_2(
+  // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
+           DEV, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     DEV,
+  // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
+       QK_BOOT, EEP_RST, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, EEP_RST, QK_BOOT,
   // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
                                   _______, _______,    _______, _______
   //                            ╰──────────────────╯ ╰──────────────────╯
