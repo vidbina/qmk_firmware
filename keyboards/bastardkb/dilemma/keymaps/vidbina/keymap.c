@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+// Based on ../default/keymap.c
 #include QMK_KEYBOARD_H
 
 enum charybdis_keymap_layers {
