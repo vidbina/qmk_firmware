@@ -41,6 +41,9 @@ enum charybdis_keymap_layers {
 #define OS_RALT OSM(MOD_RALT)
 #define OS_RGUI OSM(MOD_RGUI)
 
+#define TH_L_IN LALT_T(KC_SPC)
+#define TH_R_IN RCTL_T(KC_SPC)
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT_split_3x5_2(
@@ -51,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
           KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
   // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
-                                      NAV, KC_LSFT,     KC_SPC,     SYM
+                                      NAV, TH_L_IN,    TH_R_IN,     SYM
   //                            ╰──────────────────╯ ╰──────────────────╯
   ),
 
