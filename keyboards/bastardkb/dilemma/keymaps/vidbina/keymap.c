@@ -60,11 +60,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_NAV] = LAYOUT_split_3x5_2(
   // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
-           DEV,  KC_TAB,  KC_ESC, XXXXXXX, KC_VOLU,    XXXXXXX, KC_HOME,  KC_END,  KC_DEL, KC_BSPC,
+       XXXXXXX,  KC_TAB,  KC_ESC, XXXXXXX, KC_VOLU,    XXXXXXX, KC_HOME,  KC_END,  KC_DEL, KC_BSPC,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
        OS_LSFT, OS_LCTL, OS_LALT, OS_LGUI, KC_VOLD,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY,     KC_ENT, KC_PGDN, KC_PGUP, XXXXXXX, XXXXXXX,
+           DEV, XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY,     KC_ENT, KC_PGDN, KC_PGUP, XXXXXXX, XXXXXXX,
   // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
                                   _______, _______,    _______, _______
   //                            ╰──────────────────╯ ╰──────────────────╯
@@ -72,11 +72,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_SYM] = LAYOUT_split_3x5_2(
   // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
-        KC_GRV, KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD,    KC_CIRC, KC_RPRN, KC_RCBR, KC_RBRC,     DEV,
+        KC_GRV, KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD,    KC_CIRC, KC_RPRN, KC_RCBR, KC_RBRC, KC_SCLN,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
        KC_MINS, KC_ASTR,  KC_EQL, KC_UNDS,  KC_DLR,    KC_HASH, OS_RGUI, OS_RALT, OS_RCTL, OS_RSFT,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-       KC_PLUS, KC_PIPE,   KC_AT, KC_SLSH, KC_PERC,    KC_EXLM, KC_BSLS, KC_AMPR, KC_QUES, QK_BOOT,
+       KC_PLUS, KC_PIPE,   KC_AT, KC_SLSH, KC_PERC,    KC_EXLM, KC_BSLS, KC_AMPR, KC_QUES,     DEV,
   // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
                                   _______, _______,    _______, _______
   //                            ╰──────────────────╯ ╰──────────────────╯
@@ -96,11 +96,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_DEV] = LAYOUT_split_3x5_2(
   // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
-           DEV, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     DEV,
+       XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT, EEP_RST,    EEP_RST, QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-       QK_BOOT, EEP_RST, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, EEP_RST, QK_BOOT,
+           DEV, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     DEV,
   // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
                                   _______, _______,    _______, _______
   //                            ╰──────────────────╯ ╰──────────────────╯
