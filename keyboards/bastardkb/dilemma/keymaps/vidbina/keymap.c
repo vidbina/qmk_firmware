@@ -32,6 +32,7 @@ enum charybdis_keymap_layers {
 #define DEV MO(LAYER_DEV)
 
 #define ONESHOT_TAP_TOGGLE 2
+
 #define OS_LSFT OSM(MOD_LSFT)
 #define OS_LCTL OSM(MOD_LCTL)
 #define OS_LALT OSM(MOD_LALT)
@@ -83,6 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [LAYER_NUM] = LAYOUT_split_3x5_2(
+  // Number row from https://github.com/callum-oakley/qmk_firmware
   // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
           KC_7,    KC_5,    KC_3,    KC_1,    KC_9,       KC_8,    KC_0,    KC_2,    KC_4,    KC_6,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
