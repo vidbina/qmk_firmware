@@ -72,6 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [LAYER_SYM] = LAYOUT_split_3x5_2(
+  // TODO: Map symbols closer to QWERTY mapping (especially top-row)
   // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
         KC_GRV, KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD,    KC_CIRC, KC_RPRN, KC_RCBR, KC_RBRC, KC_SCLN,
   // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
