@@ -49,6 +49,9 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define PT_Z LT(LAYER_POINTER, KC_Z)
 #define PT_SLSH LT(LAYER_POINTER, KC_SLSH)
 
+#define SPR_ENT MT(MOD_LGUI, KC_ENTER)
+#define SPR_SPC MT(MOD_LGUI, KC_SPACE)
+
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
 #    define DPI_MOD KC_NO
@@ -68,8 +71,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH, KC_LALT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                   KC_LGUI, KC_SPC,   LOWER,      RAISE,  KC_ENT,
-                                           KC_LALT, KC_BSPC,     KC_DEL
+                                  KC_LGUI, SPR_SPC,   LOWER,      RAISE, SPR_ENT,
+                                           KC_LCTL, SC_LAPO,    SC_RAPC
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
@@ -105,13 +108,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_POINTER] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  EE_CLR, QK_BOOT,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,    XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, _______, DRGSCRL, SNIPING, EE_CLR,  QK_BOOT,    QK_BOOT, EE_CLR,  SNIPING, DRGSCRL, _______, XXXXXXX,
+       XXXXXXX, _______, KC_LSFT, DRGSCRL, SNIPING, KC_LALT,    XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, _______, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   KC_BTN2, KC_BTN1, KC_BTN3,    KC_BTN3, KC_BTN1,
                                            XXXXXXX, KC_BTN2,    KC_BTN2
@@ -158,7 +161,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #ifdef RGB_MATRIX_ENABLE
 // Forward-declare this helper function since it is defined in rgb_matrix.c.
 void rgb_matrix_update_pwm_buffers(void);
-#endif
 
 void shutdown_user(void) {
 #ifdef RGBLIGHT_ENABLE
@@ -171,3 +173,43 @@ void shutdown_user(void) {
     rgb_matrix_update_pwm_buffers();
 #endif // RGB_MATRIX_ENABLE
 }
+
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    for (uint8_t i = led_min; i < led_max; i++) {
+        switch(get_highest_layer(layer_state|default_layer_state)) {
+            case 3:
+                rgb_matrix_set_color(29, RGB_RED); // QK_BOOT
+                rgb_matrix_set_color(0,  RGB_RED); // QK_BOOT
+                rgb_matrix_set_color(36, RGB_RED); // EE_RESET
+                rgb_matrix_set_color(7,  RGB_RED); // EE_RESET
+
+                rgb_matrix_set_color(48, RGB_PINK);
+                rgb_matrix_set_color(41, RGB_PINK);
+                rgb_matrix_set_color(40, RGB_PINK);
+
+                rgb_matrix_set_color(11, RGB_MAGENTA);
+                rgb_matrix_set_color(12, RGB_PINK);
+                rgb_matrix_set_color(19, RGB_PINK);
+                rgb_matrix_set_color(23, RGB_MAGENTA);
+
+                rgb_matrix_set_color(4,  RGB_WHITE);
+                rgb_matrix_set_color(33, RGB_WHITE);
+                break;
+            case 2:
+                rgb_matrix_set_color(i,  RGB_BLUE);
+                rgb_matrix_set_color(53, RGB_WHITE);
+                break;
+            case 1:
+                rgb_matrix_set_color(i, RGB_YELLOW);
+                rgb_matrix_set_color(28, RGB_WHITE);
+                break;
+            default:
+                rgb_matrix_set_color(53, RGB_BLUE);
+                rgb_matrix_set_color(28, RGB_YELLOW);
+                rgb_matrix_set_color(33, RGB_PINK);
+                break;
+        }
+    }
+    return false;
+}
+#endif
