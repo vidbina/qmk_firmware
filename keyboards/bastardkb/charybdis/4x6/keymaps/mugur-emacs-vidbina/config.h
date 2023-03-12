@@ -9,4 +9,4 @@
      #define FORCE_NKRO
      #undef RGBLIGHT_ANIMATIONS 
 
-// END-MUGUR-REGION           
+// END-MUGUR-REGION             
