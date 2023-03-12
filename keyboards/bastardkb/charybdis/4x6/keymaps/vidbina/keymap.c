@@ -209,6 +209,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 rgb_matrix_set_color(53, RGB_BLUE);
                 rgb_matrix_set_color(28, RGB_YELLOW);
                 rgb_matrix_set_color(33, RGB_PINK);
+                rgb_matrix_set_color(4,  RGB_PINK);
                 break;
         }
     }
